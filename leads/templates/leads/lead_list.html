@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lead{
+            padding: 10px 6px;
+            margin-top: 10px;
+            background-color: bisque;
+            width: 100%;
+        }
+        .create{
+            padding: 10px 6px;
+            margin-top: 10px;
+            background-color: bisque;
+            align-items: center;
+            width:10% ;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is all of our leads</h1>
+    <!-- <h2>{{ leads }}</h2> -->
+    <ul>
+        
+        {% for lead in leads %}
+            <div class="lead">
+                <a href="/leads/{{lead.pk}}">{{ lead }} </a> , Age {{lead.age}}
+            </div>
+        {% endfor %}
+    </ul>
+    <div class="create">
+        <a href="create/">Create Acoount</a>
+    </div>
+</body>
+</html>
