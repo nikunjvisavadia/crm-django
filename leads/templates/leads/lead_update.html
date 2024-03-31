@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .lead{
-            padding: 10px 6px;
-            margin-top: 10px;
-            background-color: bisque;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <a href="{%url 'leads:lead-detail' lead.pk%}">Back to lead</a>
-    <hr>
-    <h1>Update lead: {{lead.first_name}} {{lead.last_name}}</h1>
-    </ul>
+{% extends 'base.html' %} {% block content %}
+<a href="{%url 'leads:lead-detail' lead.pk%}">Back to lead</a>
+<hr>
+<h1>Update lead: {{lead.first_name}} {{lead.last_name}}</h1>
+</ul>
 
-    <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Submit</button>
+</form>
+{% endblock content %}

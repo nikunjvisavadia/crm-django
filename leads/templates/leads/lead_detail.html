@@ -1,27 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .lead{
-            padding: 10px 6px;
-            margin-top: 10px;
-            background-color: bisque;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <a href="{%url 'leads:lead-list'%}">Back to list</a>
-    <hr>
-    <h1>This is details of {{lead.first_name}}</h1>
-    <p>This is persons age {{lead.age}}</p>
-    <p>agent responsible for lead is {{lead.agent}}</p>
+{% extends 'base.html' %} {% block content %}
+<a href="{%url 'leads:lead-list'%}">Back to list</a>
+<hr />
+<h1>This is details of {{lead.first_name}}</h1>
+<p>This is persons age {{lead.age}}</p>
+<p>agent responsible for lead is {{lead.agent}}</p>
 
-    <a href="{%url 'leads:lead-update' lead.pk%}">Update detail</a>
-    <hr>
-    <a href="{%url 'leads:lead-delete' lead.pk%}">Delete Lead</a>
-</body>
-</html>
+<a href="{%url 'leads:lead-update' lead.pk%}">Update detail</a>
+<hr />
+<a href="{%url 'leads:lead-delete' lead.pk%}">Delete Lead</a>
+{% endblock content %}
