@@ -7,10 +7,14 @@
         <span class="ml-3 text-xl">NJV</span>
       </a>
       <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center md:border-r md:border-gray-400">
-        <a href="{% url 'leads:lead-list' %}" class="mr-5 hover:text-gray-900">Leads</a>
+        
         {% if not request.user.is_authenticated %}
         <a href="{% url 'signup' %}" class="mr-5 hover:text-gray-900">Sign Up</a>
-        
+        {% else %}
+        {% if request.user.is_organisor %}
+        <a href="{% url 'agents:agent-list' %}" class="mr-5 hover:text-gray-900">Agent</a>
+        {% endif %}
+        <a href="{% url 'leads:lead-list' %}" class="mr-5 hover:text-gray-900">Leads</a>
       {%endif%}
       </nav>
       
