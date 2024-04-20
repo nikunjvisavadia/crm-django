@@ -18,7 +18,7 @@ class Lead(models.Model):
     age = models.IntegerField(default=0)
     agent = models.ForeignKey("Agent", on_delete=models.CASCADE)
     
-    def __str__(self):
+    def __str__(self): 
         return f"{self.first_name} {self.last_name}"    
 
 class Agent(models.Model):
@@ -31,6 +31,8 @@ class Agent(models.Model):
     
 
 def post_user_created_signal(sender, instance, created, **kwargs):    # this function is called when a new user has been created and saved to the database. This signal will be sent after all of the fields have been filled out by the user.
-    print(instance)
+    # print(instance, created)
+    if created:
+        UserProfile.objects.create(user=instance)
 
 post_save.connect(post_user_created_signal, sender=User)
