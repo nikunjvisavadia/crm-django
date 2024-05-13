@@ -160,3 +160,7 @@ LOGIN_URL="/login"
 
 CRISPY_TEMPLATE_PACK = 'tailwind'
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'
+
+
+LOGIN_REDIRECT_URL = "landing-page"
+LOGOUT_REDIRECT_URL = "landing-page"
